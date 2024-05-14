@@ -1,0 +1,8 @@
+﻿@page
+@model MonitoringOfStudentProgress.Pages.AdministrationPanelModel
+
+<h3>Переход к панели администратора</h3>
+
+<form asp-controller="СontrolProgress" asp-action="ControlProgress/Index" method="post">
+    <input type="submit" value="Перейти к внесению изменений" formaction="ControlProgress/Index" />
+</form>

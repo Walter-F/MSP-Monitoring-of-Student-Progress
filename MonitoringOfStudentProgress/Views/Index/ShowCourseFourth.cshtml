@@ -1,0 +1,152 @@
+﻿@using MonitoringOfStudentProgress.Models
+@model List<StudentsModel>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MSP - Monitoring of student progress</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MonitoringOfStudentProgress.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">MSP - Monitoring of student progress</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Главная страница</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Progress">Контроль успеваемости студентов</a>
+                        </li>
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Ф.И.О
+                    </th>
+
+                    <th>
+                        Курс
+                    </th>
+
+                    <th>
+                        Группа
+                    </th>
+
+                     <th>
+                        Баллы за посещение
+                    </th>
+
+                     <th>
+                        Высшая математика
+                    </th>
+
+                    
+                     <th>
+                        Информационная безопасность
+                    </th>
+
+                    
+                     <th>
+                        Системное программирование
+                    </th>
+
+                    
+                     <th>
+                        Прикладное программирование
+                    </th>
+
+                    
+                     <th>
+                        Наладчик технологического оборудования
+                    </th>
+
+                    
+                     <th>
+                        Английский
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var student in Model)
+                {
+                        if (student.Course == "4")
+                        {
+                            <tr>
+                                <td>
+                                    @student.Name
+                                </td>
+
+                                <td>
+                                    @student.Course
+                                </td>
+
+                                <td>
+                                    @student.Group
+                                </td>
+
+                                 <td>
+                                    @student.EstimationVisiting
+                                </td>
+
+                                <td>
+                                    @student.Estimation4HigherMath
+                                </td>
+
+                                <td>
+                                    @student.Estimation4InfSecurity
+                                </td>
+
+                                <td>
+                                    @student.Estimation4SysProgramming
+                                </td>
+
+                                <td>
+                                    @student.Estimation4PProgramming
+                                </td>
+
+                                <td>
+                                    @student.Estimation4NTO
+                                </td>
+
+                                <td>
+                                    @student.Estimation4English
+                                </td>
+                            </tr>
+                        }
+                    }
+            </tbody>
+        </table>
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - MSP - Monitoring of student progress - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <scr src="~/lib/jquery/dist/jquery.min.js"></scr ipt>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

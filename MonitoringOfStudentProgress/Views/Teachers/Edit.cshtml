@@ -1,0 +1,73 @@
+﻿@using MonitoringOfStudentProgress.Models
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MSP - Monitoring of student progress</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MonitoringOfStudentProgress.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">MSP - Monitoring of student progress</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            <h1>Преподаватель был успешно добавлен.</h1>
+            <hr />
+            <div class="row">
+                <div class="col-md-4">
+                    <form asp-controller="Teachers" asp-action="Create">
+                         <input class="btn btn-primary" type="submit" value="Вернуться назад" formaction="Create" />
+                    </form>
+
+                    <input class="btn btn-primary" type="button" id="btnGet" value="Вернуться на главную страницу"/>
+                    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+                    <script type="text/javascript">
+                        $(function () {
+                            $("#btnGet").click(function () {
+                                $.ajax({
+                                    type: "POST",
+                                    url: "/ControlProgress/AjaxMethod",
+                                    data: '{}',
+                                    contentType: "application/json; charset=utf-8",
+                                    dataType: "json",
+                                    success: function (response) {
+                                        if (response == true) {
+                                            alert("Сейчас вы будете перенесены на главную страницу.");
+                                            window.location = "https://localhost:7256/";
+                                        }
+                                    }
+                                });
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - MSP - Monitoring of student progress - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <scr src="~/lib/jquery/dist/jquery.min.js"></scr ipt>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>
+

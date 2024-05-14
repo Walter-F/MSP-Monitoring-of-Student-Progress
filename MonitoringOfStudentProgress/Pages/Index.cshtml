@@ -1,0 +1,113 @@
+﻿@page
+@model MonitoringOfStudentProgress.Pages.IndexModel
+
+<h3>Сводка студентов</h3>
+
+<form asp-controller="Index" asp-action="Index/ShowCourseFirst" asp-route-Students="@Model.Students"  method="post">
+    <input class="btn btn-primary" type="submit" value="1 курс" formaction="Index/ShowCourseFirst" />
+    <input class="btn btn-primary" type="submit" value="2 курс" formaction="Index/ShowCourseSecond" />
+    <input class="btn btn-primary" type="submit" value="3 курс" formaction="Index/ShowCourseThird" />
+    <input class="btn btn-primary" type="submit" value="4 курс" formaction="Index/ShowCourseFourth" />
+</form>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Ф.И.О
+            </th>
+
+            <th>
+                Курс
+            </th>
+
+            <th>
+                Группа
+            </th>
+
+             <th>
+                Баллы за посещение
+            </th>
+
+                <th>
+                Математика
+            </th>
+
+                    
+                <th>
+                Русский
+            </th>
+
+                    
+                <th>
+                Физика
+            </th>
+
+                    
+                <th>
+                Химия
+            </th>
+
+                    
+                <th>
+                История
+            </th>
+
+                    
+                <th>
+                Английский
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var student in Model.Students)
+        {
+                if (student.Course == "1")
+                {
+                    <tr>
+                        <td>
+                            @student.Name
+                        </td>
+
+                        <td>
+                            @student.Course
+                        </td>
+
+                        <td>
+                            @student.Group
+                        </td>
+
+                            <td>
+                            @student.EstimationVisiting
+                        </td>
+
+                        <td>
+                            @student.Estimation1Math
+                        </td>
+
+                        <td>
+                            @student.Estimation1Rus
+                        </td>
+
+                        <td>
+                            @student.Estimation1Phys
+                        </td>
+
+                        <td>
+                            @student.Estimation1Chemistry
+                        </td>
+
+                        <td>
+                            @student.Estimation1History
+                        </td>
+
+                        <td>
+                            @student.Estimation1English
+                        </td>
+                    </tr>
+                }
+            }
+    </tbody>
+</table>

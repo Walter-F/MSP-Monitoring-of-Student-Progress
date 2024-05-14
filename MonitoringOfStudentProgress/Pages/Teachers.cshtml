@@ -1,0 +1,8 @@
+﻿@page
+@model MonitoringOfStudentProgress.Pages.TeachersModel
+
+<h3>Привелегии администратора</h3>
+
+<form asp-controller="Teachers" asp-action="Teachers/Index" method="post">
+    <input class="btn btn-primary" type="submit" value="Перейти к добавлению преподавателей" formaction="Teachers/Index" />
+</form>
